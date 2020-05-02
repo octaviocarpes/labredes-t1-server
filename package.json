@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "start": "node src/app.js",
-    "client-mock": "node src/server.js",
+    "client-mock": "node src/client-mock.js",
     "start:dev": "nodemon src/app.js"
   },
   "dependencies": {
