@@ -5,6 +5,10 @@ const data = "New Connection";
 
 client.on('message', (msg) => {
     console.log(JSON.parse(msg));
+
+    // TODO
+    // RESPONDER PERGUNTAS
+    
     client.close();
 });
 
