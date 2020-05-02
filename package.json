@@ -1,13 +1,13 @@
 {
-  "name": "network-game-poc",
+  "name": "labredes-t1-server",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "git@github.com:octaviocarpes/network-game-poc.git",
+  "repository": "git@github.com:octaviocarpes/labredes-t1-server.git",
   "author": "Octavio Carpes <octavio.carpes10@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "node src/app.js",
-    "start:dev": "nodemon src/app.js"
+    "start": "nodemon src/app.js",
+    "client-mock": "node src/server.js"
   },
   "dependencies": {
     "nodemon": "^2.0.3"
