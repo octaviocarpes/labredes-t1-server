@@ -6,8 +6,9 @@
   "author": "Octavio Carpes <octavio.carpes10@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon src/app.js",
-    "client-mock": "node src/server.js"
+    "start": "node src/app.js",
+    "client-mock": "node src/server.js",
+    "start:dev": "nodemon src/app.js"
   },
   "dependencies": {
     "nodemon": "^2.0.3"
