@@ -29,6 +29,15 @@ server.on('message', (msg, rinfo) => {
     // server.close();
 });
 
+server.on('createRoom', (msg, rinfo) => {
+  console.log(`server got: ${msg} from ${rinfo.address}:${rinfo.port}`);
+
+  server.send('Room Created', function (err, bytes) {
+      if (err)
+          throw err;
+  });
+});
+
 
 // Prints: server listening 0.0.0.0:41234
 server.on('listening', () => {
