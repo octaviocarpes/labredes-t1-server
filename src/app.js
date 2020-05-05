@@ -1,7 +1,6 @@
 const dgram = require('dgram');
 const server = dgram.createSocket('udp4');
 
-server.setMaxListeners(5);
 server.bind(41234);
 
 const questions = {
@@ -29,15 +28,9 @@ server.on('message', (msg, rinfo) => {
     // server.close();
 });
 
-server.on('createRoom', (msg, rinfo) => {
-  console.log(`server got: ${msg} from ${rinfo.address}:${rinfo.port}`);
-
-  server.send('Room Created', function (err, bytes) {
-      if (err)
-          throw err;
-  });
-});
-
+server.on('listening', () => {
+    // TESTAR
+})
 
 // Prints: server listening 0.0.0.0:41234
 server.on('listening', () => {
