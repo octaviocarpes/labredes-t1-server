@@ -1,39 +1,61 @@
 const dgram = require('dgram');
 const server = dgram.createSocket('udp4');
 
+const questions = require('../data/questions.json')
+const answers = require('../data/answers.json')
+
 server.bind(41234);
-
-const questions = {
-    1: 'Pergunta 1',
-    2: 'pergunta 2',
-    3: 'pergunta 3'
-}
-
-server.on('error', (err) => {
-    console.log(`server error:\n${err.stack}`);
-    server.close();
-});
-
-server.on('message', (msg, rinfo) => {
-    console.log(`server got: ${msg} from ${rinfo.address}:${rinfo.port}`);
-
-    // TODO
-    // VERIFICAR SE JÁ ESTÁ CONECTADO
-
-    server.send(JSON.stringify(questions), 0, JSON.stringify(questions).length, rinfo.port, rinfo.address, function (err, bytes) {
-        if (err) 
-            throw err;
-    });
-
-    // server.close();
-});
-
-server.on('listening', () => {
-    // TESTAR
-})
 
 // Prints: server listening 0.0.0.0:41234
 server.on('listening', () => {
     const local = server.address();
     console.log(`server listening ${local.address}:${local.port}`);
 });
+
+server.on('error', (err) => {
+    console.log(`server error:\n${err.stack}`);
+    server.close();
+});
+
+let ack = false;
+
+server.on('message', (msg, rinfo) => {
+    const res = `${msg}`
+    
+    console.log(`server got: ${msg} from ${rinfo.address}:${rinfo.port}`);
+
+    if (res === 'questions') {
+        send({ req: 'questions', res: questions }, rinfo)
+    }
+
+    if (res === 'validateAnswers') {
+        send({ req: 'questions', res: answers }, rinfo)
+    }
+
+    if (res === 'ack') {
+        ack = false;
+    }
+});
+
+async function send(message, rinfo) {
+    ack = true;
+    const stringifiedMessage = JSON.stringify(message);
+
+    while(ack) {
+        server.send(stringifiedMessage, 0, lengthInUtf8Bytes(stringifiedMessage), rinfo.port, rinfo.address, function (err) {
+            if (err) 
+                throw err;
+        });
+        
+        await sleep(2000);
+    }
+}
+
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+function lengthInUtf8Bytes(str) {
+    const m = encodeURIComponent(str).match(/%[89ABab]/g);
+    return str.length + (m ? m.length : 0);
+  } 

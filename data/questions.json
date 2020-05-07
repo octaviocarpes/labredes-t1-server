@@ -10,7 +10,6 @@
       }
     }
   },
-
   {
     "Question 2": {
     "description": "Qual é o nome da última camada de protocolos do modelo de referência OSI?",
@@ -22,7 +21,6 @@
       }
     }
   },
-
   {
     "Question 3": {
     "description": "Assinale a ordem de hierarquia de nomes correta:",
@@ -34,7 +32,6 @@
       }
     }
   },
-
   {
     "Question 4": {
     "description": "Qual destas alternativas é um método de controle de fluxo de dados?",
@@ -43,18 +40,6 @@
         "b": "Janela Deslizante",
         "c": "Espaço Liso",
         "d": "Janela Flutuante"
-      }
-    }
-  },
-
-  {
-    "Question 5": {
-    "description": "",
-      "alternatives": {
-        "a": "",
-        "b": "",
-        "c": "",
-        "d": ""
       }
     }
   }

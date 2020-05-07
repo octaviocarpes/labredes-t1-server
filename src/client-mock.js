@@ -1,33 +1,32 @@
 const dgram = require("dgram");
 const client = dgram.createSocket("udp4");
 
-const data = "New Connection";
+const q = 'questions';
 
 client.on('message', (msg, rinfo) => {
-    console.log(JSON.parse(msg));
+    const obj = `${msg}`
+    const message = JSON.parse(obj)
 
-    // TODO
-    // RESPONDER PERGUNTAS
-
-    respostas = { teste: 'ok' }
-
-    responde({ respostas, rinfo });
+    if (message.req === 'questions') {
+        console.log(message)
+        send('ack')
+    }
 });
+
+send('questions')
 
 client.on('error', (err) => {
     console.log(`server error:\n${err.stack}`);
     client.close();
 });
 
-client.send(data, 0, data.length, 41234, "localhost", function (err) {
-    if (err) 
-        throw err;
-});
-
-function responde({ respostas, rinfo }) {
-    client.send(JSON.stringify(respostas), 0, JSON.stringify(respostas).length, rinfo.port, rinfo.address, function (err, bytes) {
+async function send(message) {
+    client.send(message, 0, message.length, 41234, "localhost", function (err) {
         if (err) 
             throw err;
-        client.close();
     });
+}
+
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
 }
