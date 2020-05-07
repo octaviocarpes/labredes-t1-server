@@ -24,16 +24,24 @@ server.on('message', (msg, rinfo) => {
     
     console.log(`server got: ${msg} from ${rinfo.address}:${rinfo.port}`);
 
-    if (res === 'questions') {
-        send({ req: 'questions', res: questions }, rinfo)
-    }
+    switch (res) {
+        case 'questions': {
+            send({ req: 'questions', res: questions }, rinfo);
+            break;
+        }
 
-    if (res === 'validateAnswers') {
-        send({ req: 'questions', res: answers }, rinfo)
-    }
+        case 'validateAnswers': {
+            send({ req: 'questions', res: answers }, rinfo)
+            break;
+        }
 
-    if (res === 'ack') {
-        ack = false;
+        case 'ack': {
+            ack = false;
+            break;
+        }
+        
+        default: 
+            break;
     }
 });
 
