@@ -66,4 +66,4 @@ function sleep(ms) {
 function lengthInUtf8Bytes(str) {
     const m = encodeURIComponent(str).match(/%[89ABab]/g);
     return str.length + (m ? m.length : 0);
-  } 
+} 
