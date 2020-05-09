@@ -31,7 +31,7 @@ server.on('message', (msg, rinfo) => {
         }
 
         case 'validateAnswers': {
-            send({ req: 'questions', res: answers }, rinfo)
+            send({ req: 'validateAnswers', res: answers }, rinfo)
             break;
         }
 
