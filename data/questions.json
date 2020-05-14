@@ -1,46 +1,38 @@
 [
   {
-    "Question 1": {
     "description": "Quantas camadas de protocolo existem no modelo de referência OSI?",
-      "alternatives": {
-        "a": 5,
-        "b": 4,
-        "c": 7,
-        "d": 8
-      }
+    "alternatives": {
+      "a": 5,
+      "b": 4,
+      "c": 7,
+      "d": 8
     }
   },
   {
-    "Question 2": {
     "description": "Qual é o nome da última camada de protocolos do modelo de referência OSI?",
-      "alternatives": {
-        "a": "Sessão",
-        "b": "Enlace",
-        "c": "Rede",
-        "d": "Físico"
-      }
+    "alternatives": {
+      "a": "Sessão",
+      "b": "Enlace",
+      "c": "Rede",
+      "d": "Físico"
     }
   },
   {
-    "Question 3": {
     "description": "Assinale a ordem de hierarquia de nomes correta:",
-      "alternatives": {
-        "a": "WWW > DOMINIO > COM > BR > RAIZ",
-        "b": "HOST > WWW > DOMINIO > BR > RAIZ",
-        "c": "RAIZ > BR > COM > DOMINIO > SUBDDOMÍNIO",
-        "d": "RAIZ > DOMINIO > COM > BR > RAIZ"
-      }
+    "alternatives": {
+      "a": "WWW > DOMINIO > COM > BR > RAIZ",
+      "b": "HOST > WWW > DOMINIO > BR > RAIZ",
+      "c": "RAIZ > BR > COM > DOMINIO > SUBDDOMÍNIO",
+      "d": "RAIZ > DOMINIO > COM > BR > RAIZ"
     }
   },
   {
-    "Question 4": {
     "description": "Qual destas alternativas é um método de controle de fluxo de dados?",
-      "alternatives": {
-        "a": "Ponto Flutuante",
-        "b": "Janela Deslizante",
-        "c": "Espaço Liso",
-        "d": "Janela Flutuante"
-      }
+    "alternatives": {
+      "a": "Ponto Flutuante",
+      "b": "Janela Deslizante",
+      "c": "Espaço Liso",
+      "d": "Janela Flutuante"
     }
   }
 ]
