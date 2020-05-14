@@ -1,14 +1,14 @@
-{
-  "Question 1": {
+[
+  {
     "answer": "c"
   },
-  "Question 2": {
+  {
     "answer": "d"
   },
-  "Question 3": {
+  {
     "answer": "c"
   },
-  "Question 4": {
+  {
     "answer": "b"
   }
-}
+]
