@@ -27,19 +27,16 @@ server.on('message', (msg, rinfo) => {
     switch (res) {
         case 'questions': {
             send({ req: 'questions', res: questions }, rinfo);
-            console.log("server got 'questions' request");
             break;
         }
 
         case 'validateAnswers': {
             send({ req: 'validateAnswers', res: answers }, rinfo)
-            console.log("server got 'validateAnswers' request");
             break;
         }
 
         case 'ack': {
             ack = false;
-            console.log("server got 'ack' request");
             break;
         }
         
