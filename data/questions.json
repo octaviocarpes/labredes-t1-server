@@ -6,7 +6,8 @@
       "b": 4,
       "c": 7,
       "d": 8
-    }
+    },
+    "correct_answer": "c"
   },
   {
     "description": "Qual é o nome da última camada de protocolos do modelo de referência OSI?",
@@ -15,7 +16,8 @@
       "b": "Enlace",
       "c": "Rede",
       "d": "Físico"
-    }
+    },
+    "correct_answer": "d"
   },
   {
     "description": "Assinale a ordem de hierarquia de nomes correta:",
@@ -24,7 +26,8 @@
       "b": "HOST > WWW > DOMINIO > BR > RAIZ",
       "c": "RAIZ > BR > COM > DOMINIO > SUBDDOMÍNIO",
       "d": "RAIZ > DOMINIO > COM > BR > RAIZ"
-    }
+    },
+    "correct_answer": "c"
   },
   {
     "description": "Qual destas alternativas é um método de controle de fluxo de dados?",
@@ -33,6 +36,7 @@
       "b": "Janela Deslizante",
       "c": "Espaço Liso",
       "d": "Janela Flutuante"
-    }
+    },
+    "correct_answer": "b"
   }
 ]

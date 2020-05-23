@@ -2,7 +2,6 @@ const dgram = require('dgram');
 const server = dgram.createSocket('udp4');
 
 const questions = require('../data/questions.json')
-const answers = require('../data/answers.json')
 
 server.bind(41234);
 
@@ -27,11 +26,6 @@ server.on('message', (msg, rinfo) => {
     switch (res) {
         case 'questions': {
             send({ req: 'questions', res: questions }, rinfo);
-            break;
-        }
-
-        case 'validateAnswers': {
-            send({ req: 'validateAnswers', res: answers }, rinfo)
             break;
         }
 
