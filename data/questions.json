@@ -1,6 +1,6 @@
 [
   {
-    "description": "Quantas camadas de protocolo existem no modelo de referência OSI?",
+    "description": "Quantas camadas de protocolo existem no modelo de referencia OSI?",
     "alternatives": {
       "a": 5,
       "b": 4,
@@ -10,12 +10,12 @@
     "correct_answer": "c"
   },
   {
-    "description": "Qual é o nome da última camada de protocolos do modelo de referência OSI?",
+    "description": "Qual e o nome da ultima camada de protocolos do modelo de referencia OSI?",
     "alternatives": {
-      "a": "Sessão",
+      "a": "Sessao",
       "b": "Enlace",
       "c": "Rede",
-      "d": "Físico"
+      "d": "Fisico"
     },
     "correct_answer": "d"
   },
@@ -24,17 +24,17 @@
     "alternatives": {
       "a": "WWW > DOMINIO > COM > BR > RAIZ",
       "b": "HOST > WWW > DOMINIO > BR > RAIZ",
-      "c": "RAIZ > BR > COM > DOMINIO > SUBDDOMÍNIO",
+      "c": "RAIZ > BR > COM > DOMINIO > SUBDDOMINIO",
       "d": "RAIZ > DOMINIO > COM > BR > RAIZ"
     },
     "correct_answer": "c"
   },
   {
-    "description": "Qual destas alternativas é um método de controle de fluxo de dados?",
+    "description": "Qual destas alternativas e um metodo de controle de fluxo de dados?",
     "alternatives": {
       "a": "Ponto Flutuante",
       "b": "Janela Deslizante",
-      "c": "Espaço Liso",
+      "c": "Espaco Liso",
       "d": "Janela Flutuante"
     },
     "correct_answer": "b"
