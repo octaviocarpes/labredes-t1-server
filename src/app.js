@@ -52,7 +52,7 @@ async function send(message, rinfo) {
                 throw err;
         });
 
-        await sleep(2000);
+        await sleep(500);
         count++;
     }
 }
