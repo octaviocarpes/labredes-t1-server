@@ -20,7 +20,7 @@ let ack = false;
 
 server.on('message', (msg, rinfo) => {
     const res = `${msg}`
-    
+
     console.log(`server got: ${msg} from ${rinfo.address}:${rinfo.port}`);
 
     switch (res) {
@@ -33,8 +33,8 @@ server.on('message', (msg, rinfo) => {
             ack = false;
             break;
         }
-        
-        default: 
+
+        default:
             break;
     }
 });
@@ -43,13 +43,17 @@ async function send(message, rinfo) {
     ack = true;
     const stringifiedMessage = JSON.stringify(message);
 
+    let count = 1;
+
     while(ack) {
+        console.log(`Transmission number ${count}`)
         server.send(stringifiedMessage, 0, lengthInUtf8Bytes(stringifiedMessage), rinfo.port, rinfo.address, function (err) {
-            if (err) 
+            if (err)
                 throw err;
         });
-        
+
         await sleep(2000);
+        count++;
     }
 }
 
@@ -60,4 +64,4 @@ function sleep(ms) {
 function lengthInUtf8Bytes(str) {
     const m = encodeURIComponent(str).match(/%[89ABab]/g);
     return str.length + (m ? m.length : 0);
-} 
+}
