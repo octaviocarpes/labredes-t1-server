@@ -1,7 +1,7 @@
 const dgram = require('dgram');
 const server = dgram.createSocket('udp4');
 
-const questions = require('../data/questions.json')
+const file = require('../data/questions.json');
 
 server.bind(41234);
 
@@ -16,38 +16,33 @@ server.on('error', (err) => {
     server.close();
 });
 
-let ack = false;
+// let ack = false;
 
 server.on('message', (msg, rinfo) => {
-    const res = `${msg}`
+    const req = `${msg}`;
 
     console.log(`server got: ${msg} from ${rinfo.address}:${rinfo.port}`);
 
-    switch (res) {
-        case 'questions': {
-            send({ req: 'questions', res: questions }, rinfo);
-            break;
-        }
+    if (req === 'file')
+        send(file, rinfo);
 
-        case 'ack': {
-            ack = false;
-            break;
-        }
-
-        default:
-            break;
+    const [message, offset] = splitMessage(req);
+    
+    if (message  === 'ack') {
+        send(file, rinfo, offset);
+        // ack = false;
     }
 });
 
-async function send(message, rinfo) {
+async function send(message, rinfo, offset = 0) {
     ack = true;
     const stringifiedMessage = JSON.stringify(message);
 
     let count = 1;
 
     while(ack) {
-        console.log(`Transmission number ${count}`)
-        server.send(stringifiedMessage, 0, lengthInUtf8Bytes(stringifiedMessage), rinfo.port, rinfo.address, function (err) {
+        console.log(`Transmission number ${count}`);
+        server.send(stringifiedMessage, offset, 1500, rinfo.port, rinfo.address, function (err) {
             if (err)
                 throw err;
         });
@@ -61,7 +56,10 @@ function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-function lengthInUtf8Bytes(str) {
-    const m = encodeURIComponent(str).match(/%[89ABab]/g);
-    return str.length + (m ? m.length : 0);
+function splitMessage(message) {
+    try {
+        return message.split('-'); // 'ack-100';
+    } catch (error) {
+        console.log(error);
+    }
 }

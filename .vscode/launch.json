@@ -9,6 +9,13 @@
             "request": "launch",
             "name": "Launch Program",
             "program": "${workspaceFolder}/src/app.js"
+        },
+        {
+            "type": "node",
+            "request": "attach",
+            "name": "Attach",
+            "restart": true,
+            "protocol": "inspector"
         }
     ]
 }

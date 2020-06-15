@@ -7,8 +7,8 @@
   "license": "MIT",
   "scripts": {
     "start": "node src/app.js",
-    "client-mock": "node src/client-mock.js",
-    "start:dev": "nodemon src/app.js"
+    "client-mock": "node --inspect src/client-mock.js",
+    "start:dev": "nodemon --inspect src/app.js"
   },
   "dependencies": {
     "nodemon": "^2.0.3"

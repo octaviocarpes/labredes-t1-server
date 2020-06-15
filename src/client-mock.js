@@ -11,7 +11,8 @@ client.on('message', (msg, rinfo) => {
     }
 });
 
-send('questions')
+send('file');
+// send('ack-1500');
 
 client.on('error', (err) => {
     console.log(`server error:\n${err.stack}`);
@@ -19,12 +20,12 @@ client.on('error', (err) => {
 });
 
 async function send(message) {
-    client.send(message, 0, message.length, 41234, "localhost", function (err) {
+    client.send(message, 0, message.length, 41234, "179.219.208.43", function (err) {
         if (err) 
             throw err;
     });
 }
 
-function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-}
+// function sleep(ms) {
+//     return new Promise(resolve => setTimeout(resolve, ms));
+// }
